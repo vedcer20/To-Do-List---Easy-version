@@ -1,0 +1,31 @@
+
+<!--public folder is a static folder...stores all images, js, css, etc.-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><!--.ejs file also includes HTML code!!!!-->
+  <head>                  <!--Logic is written in app.js and html is here for the TEMPLATE-->
+    <meta charset="utf-8">
+    <title>To Do list</title>
+    <link rel="stylesheet" href="css/styles.css">  <!--NO need to put 'public/css/styles.css'  -->
+  </head>
+  <body>
+
+  <div class="box" id="heading">
+    <h1><%= kindOfDay %></h1> <!--tag to write value of that array element-->
+  </div>
+
+  <div class="box">
+      <% for(var i=0 ; i<new_list.length ; i++){ %>  <!--scriptlet tag to write js in html file-->
+        <div class="item">
+          <input type="checkbox">
+          <p><%= new_list[i] %></p> <!--tag to write value of that array element-->
+        </div>
+      <% } %>
+      <form class="item" action="/" method="post"> <!--posting to the root route-->
+        <input type="text" name="new_item" placeholder="Add another task." autocomplete="off"> <!--this name NEW_ITEM is used in app.js file to add elements--><!--autocomplete off means AUTOSUGGESTIONS are OFF-->
+        <button type="submit" name="button">+</button>
+      </form>
+  </div>
+
+
+  </body>
+</html>
